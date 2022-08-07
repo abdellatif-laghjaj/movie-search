@@ -16,7 +16,10 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 600px;
+    min-width: 600px;
+    height: 88vh;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
