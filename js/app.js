@@ -52,9 +52,17 @@ createApp({
         minutesToHours(minutes) {
             const mins = minutes.replace(/\D/g, '')
             return Math.floor(mins / 60) + 'h ' + mins % 60 + 'm'
-        }
+        },
+        fixConainerWidth() {
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.querySelector('.container')
+                //set width of container to be 600px
+                container.style.width = '600px'
+            })
+        },
     },
     created() {
+        this.fixConainerWidth();
         this.movie = {
             title: 'Deadpool',
             released: '12 Feb 2016',
