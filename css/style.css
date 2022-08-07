@@ -19,7 +19,8 @@ body {
     width: 600px;
     max-width: 600px;
     min-width: 600px;
-    height: 90vh;
+    max-height: 90vh;
+    height: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
