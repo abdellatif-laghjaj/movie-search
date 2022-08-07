@@ -8,6 +8,7 @@ createApp({
             search: '',
             movie: null,
             error_message: '',
+            isLoaded: false,
         }
     },
     methods: {
@@ -42,13 +43,6 @@ createApp({
             const mins = minutes.replace(/\D/g, '')
             return Math.floor(mins / 60) + 'h ' + mins % 60 + 'm'
         },
-        fixConainerWidth() {
-            document.addEventListener('DOMContentLoaded', () => {
-                const container = document.querySelector('.container')
-                //set width of container to be 600px
-                container.style.width = '600px'
-            })
-        },
         slicePlot() {
             //check if width is less than 408px
             if (window.innerWidth < 408) {
@@ -57,9 +51,13 @@ createApp({
                 plot.innerHTML = plot.innerHTML.slice(0, 200) + '...'
             }
         },
+        loader(){
+            setTimeout(() => {
+                this.isLoaded = true;
+            }, 4500);
+        },
     },
     created() {
-        this.fixConainerWidth();
         this.movie = {
             title: 'Deadpool',
             released: '12 Feb 2016',
@@ -72,5 +70,6 @@ createApp({
             runtime: '1h 58m',
         }
         this.slicePlot();
+        this.loader();
     },
 }).mount('#app')
