@@ -114,3 +114,18 @@ body {
     align-items: center;
     gap: 5px;
 }
+
+
+/*Responsive*/
+@media only screen and (max-width: 628px){
+    .container{
+        width: 90%;
+        min-width: 440px;
+        max-width: 440px;
+    }
+    
+    .details{
+        flex-direction: column;
+        gap: 12px;
+    }
+}
