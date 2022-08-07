@@ -60,6 +60,14 @@ createApp({
                 container.style.width = '600px'
             })
         },
+        slicePlot() {
+            //check if width is less than 408px
+            if (window.innerWidth < 408) {
+                //slice the plot text to fit in the container
+                const plot = document.querySelector('.plot')
+                plot.innerHTML = plot.innerHTML.slice(0, 200) + '...'
+            }
+        },
     },
     created() {
         this.fixConainerWidth();
@@ -74,5 +82,6 @@ createApp({
             imdbVotes: '1,010,228',
             runtime: '1h 58m',
         }
+        this.slicePlot();
     },
 }).mount('#app')
