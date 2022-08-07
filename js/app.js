@@ -28,7 +28,7 @@ createApp({
             fetch(this.url + this.search + '&apikey=' + this.api_key)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(this.movie)
+                    console.log(data)
                     this.movie.title = data.Title
                     this.movie.released = data.Released
                     this.movie.poster = data.Poster
@@ -39,7 +39,7 @@ createApp({
                     this.movie.imdbVotes = data.imdbVotes
                     this.movie.runtime = data.Runtime
                 })
-                .catch(error => this.error_message = error)
+                .catch(error => this.error_message = "Movie not found");
         },
         validateSearch() {
             if (this.search.length > 0) {
@@ -51,7 +51,16 @@ createApp({
         },
     },
     created() {
-        this.search = 'titanic';
-        this.searchMovie();
+        this.movie = {
+            title: 'Deadpool',
+            released: '12 Feb 2016',
+            poster: 'https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
+            plot: 'A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks.',
+            actors: ['Ryan Reynolds', 'Morena Baccarin', 'T.J. Miller'],
+            genre: ['Action', 'Adventure', 'Comedy'],
+            imdbRating: '8.0',
+            imdbVotes: '1,010,228',
+            runtime: '108 min',
+        }
     },
 }).mount('#app')
