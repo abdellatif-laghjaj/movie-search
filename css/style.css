@@ -8,4 +8,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url(/res/bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
