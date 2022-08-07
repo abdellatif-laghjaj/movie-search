@@ -42,19 +42,30 @@
                 </div>
             </div>
             <!-- Movie Details -->
-            <div class="card">
+            <div class="card" v-if="movie">
                 <div class="card-header">
                     <img :src="movie.poster" class="w-full" />
                 </div>
                 <div class="card-body">
-                    <div class="tag">
-                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900" v-for="genre in movie.genre">
-                            {{genre}}
-                        </span>
+                    <div class="details">
+                        <div class="tag">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900" v-for="genre in movie.genre">
+                                {{genre}}
+                            </span>
+                        </div>
+
+                        <div class="duration">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <polyline points="12 7 12 12 15 15"></polyline>
+                             </svg>
+                            <span>{{movie.runtime}}</span>
+                        </div>
                     </div>
-                    <h4>
+                    <h2 class="text-2xl font-semibold">
                         {{movie.title}}
-                    </h4>
+                    </h2>
                     <p>
                         {{movie.plot}}
                     </p>
