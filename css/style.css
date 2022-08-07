@@ -58,12 +58,6 @@ body {
 }
 
 .tag {
-    background: #cccccc;
-    border-radius: 50px;
-    font-size: 12px;
-    margin: 0;
-    color: #fff;
-    padding: 2px 10px;
     text-transform: uppercase;
     cursor: pointer;
     display: flex;

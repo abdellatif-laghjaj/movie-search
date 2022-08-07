@@ -47,8 +47,11 @@
                     <img :src="movie.poster" class="w-full" />
                 </div>
                 <div class="card-body">
-                    <span class="tag tag-teal" v-for="genre in movie.genre">{{genre}}</span>
-                    </span>
+                    <div class="tag">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900" v-for="genre in movie.genre">
+                            {{genre}}
+                        </span>
+                    </div>
                     <h4>
                         {{movie.title}}
                     </h4>
