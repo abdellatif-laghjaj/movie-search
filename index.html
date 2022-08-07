@@ -19,7 +19,7 @@
             <!-- Search form -->
             <div class="form-control my-3 w-full">
                 <div class="input-group w-full">
-                    <input type="text" placeholder="Search movie…" class="input input-bordered w-full" />
+                    <input type="text" placeholder="Search movie…" class="input input-bordered w-full" v-model="search">
                     <button class="btn btn-square" @click.prevent="validateSearch">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -44,7 +44,7 @@
             <!-- Movie Details -->
             <div class="card">
                 <div class="card-header">
-                    <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+                    <img :src="movie.poster" class="w-full" />
                 </div>
                 <div class="card-body">
                     <span class="tag tag-teal">Technology</span>
