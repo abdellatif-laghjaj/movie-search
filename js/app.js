@@ -34,8 +34,6 @@ createApp({
                     this.movie.poster = data.Poster
                     this.movie.plot = data.Plot
                     this.movie.actors = data.Actors.split(', ')
-                    this.movie.director = data.Director
-                    this.movie.writer = data.Writer
                     this.movie.genre = data.Genre.split(', ')
                     this.movie.imdbRating = data.imdbRating
                     this.movie.imdbVotes = data.imdbVotes
