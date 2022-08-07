@@ -47,21 +47,14 @@
                     <img :src="movie.poster" class="w-full" />
                 </div>
                 <div class="card-body">
-                    <span class="tag tag-teal">Technology</span>
+                    <span class="tag tag-teal" v-for="genre in movie.genre">{{genre}}</span>
+                    </span>
                     <h4>
                         {{movie.title}}
                     </h4>
                     <p>
-                        {{movie.overview}}
+                        {{movie.plot}}
                     </p>
-                    <div class="user">
-                        <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-                            alt="user" />
-                        <div class="user-info">
-                            <h5>July Dec</h5>
-                            <small>2h ago</small>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

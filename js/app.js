@@ -53,7 +53,7 @@ createApp({
         },
     },
     created() {
-        this.search = 'titanic'
+        this.search = 'titanic';
         this.searchMovie();
     },
 }).mount('#app')
