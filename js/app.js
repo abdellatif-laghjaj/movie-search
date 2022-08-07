@@ -37,7 +37,7 @@ createApp({
                     this.movie.genre = data.Genre.split(', ')
                     this.movie.imdbRating = data.imdbRating
                     this.movie.imdbVotes = data.imdbVotes
-                    this.movie.runtime = data.Runtime
+                    this.movie.runtime = this.minutesToHours(data.Runtime)
                 })
                 .catch(error => this.error_message = "Movie not found");
         },
@@ -49,6 +49,10 @@ createApp({
                 this.error_message = 'Please enter a movie title'
             }
         },
+        minutesToHours(minutes) {
+            const mins = minutes.replace(/\D/g, '')
+            return Math.floor(mins / 60) + 'h ' + mins % 60 + 'm'
+        }
     },
     created() {
         this.movie = {
@@ -60,7 +64,7 @@ createApp({
             genre: ['Action', 'Adventure', 'Comedy'],
             imdbRating: '8.0',
             imdbVotes: '1,010,228',
-            runtime: '108 min',
+            runtime: '1h 58m',
         }
     },
 }).mount('#app')
