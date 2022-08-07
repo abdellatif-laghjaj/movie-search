@@ -6,29 +6,15 @@ createApp({
             url: 'http://www.omdbapi.com/?t=',
             api_key: 'b60d4db',
             search: '',
-            movie: {
-                title: '',
-                released: '',
-                poster: '',
-                plot: '',
-                actors: [],
-                director: '',
-                writer: '',
-                genre: [],
-                imdbRating: '',
-                imdbVotes: '',
-                runtime: '',
-            },
+            movie: null,
             error_message: '',
         }
     },
     methods: {
         searchMovie() {
-            this.movie = {}
             fetch(this.url + this.search + '&apikey=' + this.api_key)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     this.movie.title = data.Title
                     this.movie.released = data.Released
                     this.movie.poster = data.Poster
@@ -39,14 +25,17 @@ createApp({
                     this.movie.imdbVotes = data.imdbVotes
                     this.movie.runtime = this.minutesToHours(data.Runtime)
                 })
-                .catch(error => this.error_message = "Movie not found");
+                .catch(error => {
+                    this.movie = null
+                    this.error_message = "Movie not found"
+                })
         },
         validateSearch() {
             if (this.search.length > 0) {
                 this.searchMovie()
             }else{
-                this.movie = {}
                 this.error_message = 'Please enter a movie title'
+                this.movie = null
             }
         },
         minutesToHours(minutes) {
