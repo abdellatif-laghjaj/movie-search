@@ -20,7 +20,7 @@ body {
     max-width: 600px;
     min-width: 600px;
     height: 88vh;
-    padding: 20px;
+    padding: 8px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,20 +33,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.movie-details {
-    display: flex;
-    width: 1040px;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
 .card {
-    margin: 10px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    width: 300px;
+    width: 100%;
 }
 
 .card-header img {
