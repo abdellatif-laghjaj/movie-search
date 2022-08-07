@@ -17,7 +17,7 @@
     <div id="app">
         <div class="container">
             <!-- Search form -->
-            <div class="form-control my-3 w-full" v-if="error_message">
+            <div class="form-control my-3 w-full">
                 <div class="input-group w-full">
                     <input type="text" placeholder="Search movie…" class="input input-bordered w-full" />
                     <button class="btn btn-square" @click.prevent="validateSearch">
@@ -31,7 +31,7 @@
             </div>
 
             <!-- Error message -->
-            <div class="alert alert-error shadow-lg my-2">
+            <div class="alert alert-error shadow-lg my-2" v-if="error_message">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
                         viewBox="0 0 24 24">
@@ -49,11 +49,10 @@
                 <div class="card-body">
                     <span class="tag tag-teal">Technology</span>
                     <h4>
-                        Why is the Tesla Cybertruck designed the way it
-                        is?
+                        {{movie.title}}
                     </h4>
                     <p>
-                        An exploration into the truck's polarising design
+                        {{movie.overview}}
                     </p>
                     <div class="user">
                         <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"

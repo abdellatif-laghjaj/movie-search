@@ -7,7 +7,7 @@ createApp({
             api_key: 'b60d4db',
             search: '',
             movie: {},
-            error_message: ''
+            error_message: '',
         }
     },
     methods: {
