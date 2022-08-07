@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.22.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/vue@3"></script>
     <title>Movie Search | By Abdellatif Laghjaj</title>
 </head>
@@ -14,6 +16,20 @@
 <body>
     <div id="app">
         <div class="container">
+            <!-- Search form -->
+            <div class="form-control">
+                <div class="input-group">
+                    <input type="text" placeholder="Search…" class="input input-bordered" />
+                    <button class="btn btn-square">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Movie Details -->
             <div class="card">
                 <div class="card-header">
                     <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
