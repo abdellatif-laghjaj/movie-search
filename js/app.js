@@ -28,18 +28,18 @@ createApp({
             fetch(this.url + this.search + '&apikey=' + this.api_key)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(this.movie)
                     this.movie.title = data.Title
                     this.movie.released = data.Released
                     this.movie.poster = data.Poster
                     this.movie.plot = data.Plot
-                    this.movie.actors = this.stringToArray(data.Actors)
+                    this.movie.actors = data.Actors.split(', ')
                     this.movie.director = data.Director
                     this.movie.writer = data.Writer
-                    this.movie.genre = this.stringToArray(data.Genre)
+                    this.movie.genre = data.Genre.split(', ')
                     this.movie.imdbRating = data.imdbRating
                     this.movie.imdbVotes = data.imdbVotes
                     this.movie.runtime = data.Runtime
-                    console.log(this.movie)
                 })
                 .catch(error => this.error_message = error)
         },
@@ -51,8 +51,9 @@ createApp({
                 this.error_message = 'Please enter a movie title'
             }
         },
-        stringToArray(string) {
-            return string.split(', ');
-        }
+    },
+    created() {
+        this.search = 'titanic'
+        this.searchMovie();
     },
 }).mount('#app')
