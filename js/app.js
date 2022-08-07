@@ -13,6 +13,7 @@ createApp({
     },
     methods: {
         searchMovie() {
+            this.movie = {};
             fetch(this.url + this.search + '&apikey=' + this.api_key)
                 .then(response => response.json())
                 .then(data => {
@@ -25,6 +26,8 @@ createApp({
                     this.movie.imdbRating = data.imdbRating
                     this.movie.imdbVotes = data.imdbVotes
                     this.movie.runtime = this.minutesToHours(data.Runtime)
+
+                    this.error_message = ''
                 })
                 .catch(error => {
                     this.movie = null
