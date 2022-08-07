@@ -6,7 +6,19 @@ createApp({
             url: 'http://www.omdbapi.com/?t=',
             api_key: 'b60d4db',
             search: '',
-            movie: {},
+            movie: {
+                title: '',
+                released: '',
+                poster: '',
+                plot: '',
+                actors: [],
+                director: '',
+                writer: '',
+                genre: [],
+                imdbRating: '',
+                imdbVotes: '',
+                runtime: '',
+            },
             error_message: '',
         }
     },
@@ -16,7 +28,17 @@ createApp({
             fetch(this.url + this.search + '&apikey=' + this.api_key)
                 .then(response => response.json())
                 .then(data => {
-                    this.movie = data;
+                    this.movie.title = data.Title
+                    this.movie.released = data.Released
+                    this.movie.poster = data.Poster
+                    this.movie.plot = data.Plot
+                    this.movie.actors = this.stringToArray(data.Actors)
+                    this.movie.director = data.Director
+                    this.movie.writer = data.Writer
+                    this.movie.genre = this.stringToArray(data.Genre)
+                    this.movie.imdbRating = data.imdbRating
+                    this.movie.imdbVotes = data.imdbVotes
+                    this.movie.runtime = data.Runtime
                     console.log(this.movie)
                 })
                 .catch(error => this.error_message = error)
@@ -28,6 +50,9 @@ createApp({
                 this.movie = {}
                 this.error_message = 'Please enter a movie title'
             }
+        },
+        stringToArray(string) {
+            return string.split(', ');
         }
     },
 }).mount('#app')
