@@ -61,6 +61,20 @@ body {
     color: #fff;
 }
 
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.details .duration {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
 .tag {
     text-transform: uppercase;
     cursor: pointer;
