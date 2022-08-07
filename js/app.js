@@ -7,6 +7,7 @@ createApp({
             api_key: 'b60d4db',
             search: '',
             movie: {},
+            error_message: ''
         }
     },
     methods: {
@@ -18,14 +19,14 @@ createApp({
                     this.movie = data;
                     console.log(this.movie)
                 })
-                .catch(error => console.log(error));
+                .catch(error => this.error_message = error)
         },
         validateSearch() {
             if (this.search.length > 0) {
                 this.searchMovie()
             }else{
                 this.movie = {}
-                alert('Please enter a movie title');
+                this.error_message = 'Please enter a movie title'
             }
         }
     },
